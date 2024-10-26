@@ -1,0 +1,204 @@
+/*adding logo animation on the top*/
+
+@keyframes logo_fade {
+  from {
+    width: 25px;
+    opacity: 0;
+  }
+
+  to {
+    width: 475px;
+    opacity: 1;
+  }
+}
+
+body {
+  font-family: "Poppins", serif;
+  background-image: url("../images/concrete_seamless.png");
+  background-color: #f1f1f1;
+}
+
+#logo {
+  animation: logo_fade 5s ease-in-out forwards;
+}
+
+/* Seting up the flexbox for nav bar*/
+.nav_links {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Setting up the flexbox for the header*/
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/* Visited links no longer change color and now remain the default color of blue*/
+
+a:visited {
+  color: blue;
+}
+
+/* headers to have border radius,  change background color, border, and padding.*/
+.card>header {
+  background-color: #288088;
+  border-radius: 50px 50px 0px 0px;
+
+  border: solid 2px #45ADAD;
+  padding: 20px 0px;
+
+}
+
+/* Stylizes the whole card so its top corners match the header.*/
+.card {
+  border-radius: 50px 50px 0px 0px;
+}
+
+/* step 7 card class */
+.card {
+  flex-basis: 450px;
+  width: 75%;
+}
+
+/* step 8 = edit pricing class */
+.pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* sytle the images in the gallery class. 
+
+*/
+.gallery img {
+
+  margin: 10px;
+  border: solid 10px #50C7C7;
+
+  width: 300px;
+}
+
+/* last step for mobile view: edit gallery class to use flex 
+*/
+.gallery {
+
+  flex-direction: row;
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/* screen size greater than 900px */
+@media screen and (min-width: 900px) {
+
+  /* edit header tag and nav_links. */
+  header {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .nav_links {
+    flex-flow: row wrap;
+  }
+
+  /* edit pricing and card  */
+
+  .card {
+    flex-basis: 275px;
+  }
+
+
+
+  .pricing {
+    flex-direction: row;
+  }
+
+  /* header sticky*/
+
+
+
+  body>header {
+
+    position: sticky;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    z-index: 1;
+  }
+
+}
+
+/* animation for logo, prefers-reduced-motion*/
+@media (prefers-reduced-motion) {
+  #logo {
+    animation-iteration-count: 0;
+  }
+}
+
+
+
+
+/* printing in portrait mode*/
+
+@media print {
+  body {
+    /* back up font families*/
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: none;
+  }
+
+  /* nav/nav_links spaced according to the image above.  */
+
+  nav {
+    width: 100%;
+  }
+
+  .nav_links {
+
+
+    justify-content: space-evenly;
+    flex-direction: row;
+
+  }
+
+  /* Edit pricing class. step 18*/
+
+  .pricing {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+
+
+
+  /* Step 19: card elements: 2px solid border, flex-basis 325px*/
+  .card {
+    border: solid 2px #45ADDD;
+    flex-basis: 325px;
+  }
+
+  /* no part of the gallery should be visible*/
+  #gallery,
+  .gallery {
+    display: none;
+  }
+
+
+
+
+  /* add thumbs up  */
+  .card ul li:nth-child(2)::after {
+    content: "👍";
+  }
+
+}
